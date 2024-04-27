@@ -43,6 +43,8 @@ namespace FactorsOfTheNumber
 
                         Console.WriteLine($"{input} has {numberOfFactors} factors.");
 
+                        PerfectNumberCheck(input, numberOfFactors, factors);
+
                         break;
                     }
                     else
@@ -69,6 +71,28 @@ namespace FactorsOfTheNumber
             string input = Console.ReadLine();
 
             return input;
+        }
+
+        static void PerfectNumberCheck(int userSelectedNumber, int countOfFactors, List<int> factorsOfNumber)
+        {
+            int sum = 0;
+            string perfectNumberStatus;
+
+            for (int i = 0; i < countOfFactors - 1; i++)
+            {
+                sum += factorsOfNumber[i];
+            }
+
+            if (sum == userSelectedNumber)
+            {
+                perfectNumberStatus = "is";
+            }
+            else
+            {
+                perfectNumberStatus = "is not";
+            }
+
+            Console.WriteLine($"{userSelectedNumber} {perfectNumberStatus} a perfect number.");
         }
     }
 }
