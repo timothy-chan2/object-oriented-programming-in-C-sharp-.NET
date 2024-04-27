@@ -44,6 +44,7 @@ namespace FactorsOfTheNumber
                         Console.WriteLine($"{input} has {numberOfFactors} factors.");
 
                         PerfectNumberCheck(input, numberOfFactors, factors);
+                        PrimeNumberCheck(input, numberOfFactors);
 
                         break;
                     }
@@ -93,6 +94,22 @@ namespace FactorsOfTheNumber
             }
 
             Console.WriteLine($"{userSelectedNumber} {perfectNumberStatus} a perfect number.");
+        }
+
+        static void PrimeNumberCheck(int userSelectedNumber, int countOfFactors)
+        {
+            string primeNumberStatus;
+
+            if (userSelectedNumber > 1 && countOfFactors == 2)
+            {
+                primeNumberStatus = "is";
+            }
+            else
+            {
+                primeNumberStatus = "is not";
+            }
+
+            Console.WriteLine($"{userSelectedNumber} {primeNumberStatus} a prime number.");
         }
     }
 }
