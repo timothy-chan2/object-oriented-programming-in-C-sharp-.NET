@@ -61,41 +61,41 @@ namespace Investment
                                             }
                                             else
                                             {
-                                                invalidAnswerReminder("integer");
+                                                InvalidAnswerReminder("integer");
                                             }
                                         }
                                         else
                                         {
-                                            invalidAnswerReminder("integer");
+                                            InvalidAnswerReminder("integer");
                                         }
                                     }
                                     break;
                                 }
                                 else
                                 {
-                                    invalidAnswerReminder("integer");
+                                    InvalidAnswerReminder("integer");
                                 }
                             }
                             else
                             {
-                                invalidAnswerReminder("integer");
+                                InvalidAnswerReminder("integer");
                             }
                         }
                         break;
                     }
                     else
                     {
-                        invalidAnswerReminder("number");
+                        InvalidAnswerReminder("number");
                     }
                 }
                 else
                 {
-                    invalidAnswerReminder("number");
+                    InvalidAnswerReminder("number");
                 }
             }
         }
 
-        static void invalidAnswerReminder(string correctType)
+        static void InvalidAnswerReminder(string correctType)
         {
             Console.WriteLine("Invalid input!");
             Console.WriteLine($"You must enter a positive {correctType}.");
