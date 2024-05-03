@@ -61,44 +61,44 @@ namespace Investment
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Invalid input!");
-                                                Console.WriteLine("You must enter a positive integer.");
+                                                invalidAnswerReminder("integer");
                                             }
                                         }
                                         else
                                         {
-                                            Console.WriteLine("Invalid input!");
-                                            Console.WriteLine("You must enter a positive integer.");
+                                            invalidAnswerReminder("integer");
                                         }
                                     }
                                     break;
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Invalid input!");
-                                    Console.WriteLine("You must enter a positive integer.");
+                                    invalidAnswerReminder("integer");
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("Invalid input!");
-                                Console.WriteLine("You must enter a positive integer.");
+                                invalidAnswerReminder("integer");
                             }
                         }
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input!");
-                        Console.WriteLine("You must enter a positive number.");
+                        invalidAnswerReminder("number");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input!");
-                    Console.WriteLine("You must enter a positive number.");
+                    invalidAnswerReminder("number");
                 }
             }
+        }
+
+        static void invalidAnswerReminder(string correctType)
+        {
+            Console.WriteLine("Invalid input!");
+            Console.WriteLine($"You must enter a positive {correctType}.");
         }
     }
 }
