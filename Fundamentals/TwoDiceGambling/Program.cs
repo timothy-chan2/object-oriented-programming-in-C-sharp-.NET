@@ -8,8 +8,6 @@ namespace TwoDiceGambling
         {
             while (true)
             {
-
-            
                 Console.Write("How many dollars do you want to bet? ");
                 string userBalanceString = Console.ReadLine();
 
@@ -20,6 +18,7 @@ namespace TwoDiceGambling
                         Random rng = new Random();
                         int rollCounter = 0;
                         int diceOneRoll, diceTwoRoll;
+                        int[] maxUserBalanceData = { 0, userBalance };
 
                         while (userBalance > 0)
                         {
@@ -35,9 +34,16 @@ namespace TwoDiceGambling
                             {
                                 userBalance--;
                             }
+
+                            if (userBalance > maxUserBalanceData[1])
+                            {
+                                maxUserBalanceData[0] = rollCounter;
+                                maxUserBalanceData[1] = userBalance;
+                            }
                         }
 
                         Console.WriteLine($"Your money was depleted after {rollCounter} rolls.");
+                        Console.WriteLine($"You had the highest balance after {maxUserBalanceData[0]} rolls with {maxUserBalanceData[1]:C}.");
 
                         Console.ReadLine();
                         break;
