@@ -9,23 +9,31 @@ namespace IntegerGuess
             Random numberGenerator = new Random();
 
             int randomInteger = numberGenerator.Next(-100, 101);
-            int userValidatedGuess;
-            Console.WriteLine(randomInteger);
+            int attemptCounter = 0;
 
             while (true)
             {
                 ChangeFontColor("white");
                 Console.WriteLine("Guess the random number between -100 and 100.");
+                Console.WriteLine("Enter Q as the guess to exit the game.");
                 Console.Write("Enter your guess: ");
                 string userGuess = Console.ReadLine();
                 Console.WriteLine();
 
-                if (int.TryParse(userGuess, out userValidatedGuess))
+                if (userGuess == "Q")
                 {
+                    Console.WriteLine($"You chose to exit the game after {attemptCounter} attempts.");
+                    break;
+                }
+
+                if (int.TryParse(userGuess, out int userValidatedGuess))
+                {
+                    attemptCounter++;
+                    
                     if (userValidatedGuess == randomInteger)
                     {
                         ChangeFontColor("green");
-                        Console.WriteLine("You guessed the right number!");
+                        Console.WriteLine($"You guessed the right number after {attemptCounter} attempts!");
                         break;
                     }
                     else if (userValidatedGuess < randomInteger)
@@ -40,7 +48,7 @@ namespace IntegerGuess
                 else
                 {
                     ChangeFontColor("red");
-                    Console.WriteLine("Invalid input! You must enter a number.");
+                    Console.WriteLine("Invalid input! You must enter an integer.");
                 }
             }
             
