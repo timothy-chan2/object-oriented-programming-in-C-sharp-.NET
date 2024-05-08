@@ -10,70 +10,57 @@ namespace IntegerGuess
 
             int randomInteger = numberGenerator.Next(-100, 101);
             int userValidatedGuess;
+            Console.WriteLine(randomInteger);
 
-            Console.WriteLine("Guess the random number between -100 and 100.");
-            Console.Write("Enter your guess: ");
-            string userGuess = Console.ReadLine();
-            Console.WriteLine();
-
-            if (int.TryParse(userGuess, out userValidatedGuess))
+            while (true)
             {
-                if (userValidatedGuess == randomInteger)
-                {
-                    Console.WriteLine("You guessed the right number!");
-                }
-                else if (userValidatedGuess < randomInteger)
-                {
-                    Console.WriteLine("Too low. You have have one more guess.");
-                    Console.Write("Enter your guess: ");
-                    userGuess = Console.ReadLine();
-                    Console.WriteLine();
+                ChangeFontColor("white");
+                Console.WriteLine("Guess the random number between -100 and 100.");
+                Console.Write("Enter your guess: ");
+                string userGuess = Console.ReadLine();
+                Console.WriteLine();
 
-                    if (int.TryParse(userGuess, out userValidatedGuess))
+                if (int.TryParse(userGuess, out userValidatedGuess))
+                {
+                    if (userValidatedGuess == randomInteger)
                     {
-                        if (userValidatedGuess == randomInteger)
-                        {
-                            Console.WriteLine("You guessed the right number!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("You guessed wrong. Game over!");
-                        }
+                        ChangeFontColor("green");
+                        Console.WriteLine("You guessed the right number!");
+                        break;
+                    }
+                    else if (userValidatedGuess < randomInteger)
+                    {
+                        Console.WriteLine("Too low.");
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input! You must enter a number.");
+                        Console.WriteLine("Too high.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Too high. You have have one more guess.");
-                    Console.Write("Enter your guess: ");
-                    userGuess = Console.ReadLine();
-                    Console.WriteLine();
-
-                    if (int.TryParse(userGuess, out userValidatedGuess))
-                    {
-                        if (userValidatedGuess == randomInteger)
-                        {
-                            Console.WriteLine("You guessed the right number!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("You guessed wrong. Game over!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input! You must enter a number.");
-                    }
+                    ChangeFontColor("red");
+                    Console.WriteLine("Invalid input! You must enter a number.");
                 }
             }
-            else
-            {
-                Console.WriteLine("Invalid input! You must enter a number.");
-            }
+            
             Console.ReadLine();
+        }
+
+        static void ChangeFontColor(string newColor)
+        {
+            if (newColor == "white")
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (newColor == "red")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else if (newColor == "green")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
         }
     }
 }
