@@ -16,18 +16,21 @@ namespace ConsoleUtilities.BLL
 
             do
             {
-                if (isFirstAttempt)
+                do
                 {
-                    isFirstAttempt = false;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input!");
-                }
+                    if (isFirstAttempt)
+                    {
+                        isFirstAttempt = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input!");
+                    }
 
-                Console.Write(prompt);
-                userInputString = Console.ReadLine();
-            } while (!int.TryParse(userInputString, out IntUserInput));
+                    Console.Write(prompt);
+                    userInputString = Console.ReadLine();
+                } while (!int.TryParse(userInputString, out IntUserInput));
+            } while (IntUserInput < 0);
 
             return IntUserInput;
         }
