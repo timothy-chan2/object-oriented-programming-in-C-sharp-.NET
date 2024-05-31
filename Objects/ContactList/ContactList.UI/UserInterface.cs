@@ -21,7 +21,7 @@ namespace ContactList.UI
             Console.WriteLine("\nMenu");
             Console.WriteLine("1. Add contact");
             Console.WriteLine("2. Show all contacts");
-            Console.WriteLine("3. Look up contacts");
+            Console.WriteLine("3. Look up contact");
             Console.WriteLine("4. Edit contact");
             Console.WriteLine("5. Remove contact");
             Console.WriteLine("6. Exit program");
