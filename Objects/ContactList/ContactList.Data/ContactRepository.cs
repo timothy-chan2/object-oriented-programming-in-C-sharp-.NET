@@ -20,6 +20,7 @@ namespace ContactList.Data
             contact1.FirstName = "Bill";
             contact1.LastName = "Gates";
             contact1.PhoneNumber = "607-123-4567";
+            contact1.Email = "bill.gates@ms.com";
 
             contacts[0] = contact1;
 
@@ -28,6 +29,7 @@ namespace ContactList.Data
             contact2.FirstName = "Elon";
             contact2.LastName = "Musk";
             contact2.PhoneNumber = "706-765-4321";
+            contact2.Email = "elon.musk@spacex.com";
 
             contacts[1] = contact2;
         }
