@@ -86,8 +86,17 @@ namespace ContactList.Controller
 
         private void SearchContact()
         {
-            //Remove this line when you start implementing action method
-            Console.WriteLine("This action is not implemented yet.");
+            int contactID = userInterface.GetContactID();
+            Contact requestedContact = repository.RetrieveContactById(contactID);
+            
+            if (requestedContact == null)
+            {
+                userInterface.DisplayEmptyContact(contactID);
+            }
+            else
+            {
+                userInterface.DisplayContact(requestedContact);
+            }
         }
 
         private void UpdateContact()

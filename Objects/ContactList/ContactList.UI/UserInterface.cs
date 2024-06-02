@@ -51,6 +51,17 @@ namespace ContactList.UI
             Console.WriteLine($"Email: {contact.Email}");
         }
 
+        public int GetContactID()
+        {
+            int contactID = userIO.ReadInt("\nEnter the contact ID that you wish to look up: ", 0, 9);
+            return contactID;
+        }
+
+        public void DisplayEmptyContact(int contactID)
+        {
+            Console.WriteLine($"\nThe contact ID {contactID} contains no data.");
+        }
+
         public void ShowActionSuccess(string actionName)
         {
             Console.WriteLine($"\n{actionName} executed successfully.");
