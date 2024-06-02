@@ -70,10 +70,15 @@ namespace ContactList.Controller
 
         private void ShowAllContacts()
         {
-            //Check if implemented correctly
             Contact[] allContacts = repository.RetreiveAllContacts();
+            int firstNullIndex = Array.FindIndex(allContacts, contact => contact == null);
 
-            for (int i = 0; i < allContacts.Length; i++)
+            if (firstNullIndex == -1)
+            {
+                firstNullIndex = allContacts.Length;
+            }
+
+            for (int i = 0; i < firstNullIndex; i++)
             {
                 userInterface.DisplayContact(allContacts[i]);
             }
