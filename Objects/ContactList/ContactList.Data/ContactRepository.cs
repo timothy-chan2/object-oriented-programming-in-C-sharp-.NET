@@ -34,17 +34,27 @@ namespace ContactList.Data
             contacts[1] = contact2;
         }
 
-        public Contact CreateContact(Contact contact)
+        public Contact CreateContact(Contact contact, int[] saveIndexArray = null)
         {
-            for (int i = 0; i < contacts.Length; i++)
+            if (saveIndexArray == null)
             {
-                if (contacts[i] == null)
+                for (int i = 0; i < contacts.Length; i++)
                 {
-                    contact.ContactID = i;
-                    contacts[i] = contact;
+                    if (contacts[i] == null)
+                    {
+                        contact.ContactID = i;
+                        contacts[i] = contact;
 
-                    return contact;
+                        return contact;
+                    }
                 }
+            }
+            else
+            {
+                contact.ContactID = saveIndexArray[0];
+                contacts[saveIndexArray[0]] = contact;
+
+                return contact;
             }
 
             // If the contacts array is already full then the new contact will not be created
@@ -66,10 +76,11 @@ namespace ContactList.Data
             contacts[contactID] = null;
         }
 
-        public Contact EditContact(Contact contact)
+        public Contact EditContact(Contact contact, int saveIndex)
         {
-            DeleteContact(contact.ContactID);
-            Contact updatedContact = CreateContact(contact);
+            DeleteContact(saveIndex);
+            int[] saveIndexArray = { saveIndex };
+            Contact updatedContact = CreateContact(contact, saveIndexArray);
 
             return updatedContact;
         }

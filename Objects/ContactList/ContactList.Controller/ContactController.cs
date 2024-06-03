@@ -109,8 +109,30 @@ namespace ContactList.Controller
 
         private void UpdateContact()
         {
-            //Remove this line when you start implementing action method
-            Console.WriteLine("This action is not implemented yet.");
+            int contactID = userInterface.GetContactID("edit");
+            Contact requestedContact = repository.RetrieveContactById(contactID);
+
+            if (requestedContact == null)
+            {
+                userInterface.DisplayEmptyContact(contactID);
+            }
+            else
+            {
+                userInterface.DisplayContact(requestedContact);
+            }
+
+            Contact newContact = userInterface.GetNewContactInformation();
+            Contact updatedContact = repository.EditContact(newContact, contactID);
+
+            if (updatedContact != null)
+            {
+                userInterface.DisplayContact(updatedContact);
+                userInterface.ShowActionSuccess("Edit Contact");
+            }
+            else
+            {
+                userInterface.ShowActionFail("Edit Contact");
+            }
         }
 
         private void DeleteContact()
