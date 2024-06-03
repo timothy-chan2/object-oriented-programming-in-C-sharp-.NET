@@ -70,23 +70,31 @@ namespace ContactList.Controller
 
         private void ShowAllContacts()
         {
+            int nullCounter = 0;
             Contact[] allContacts = repository.RetreiveAllContacts();
-            int firstNullIndex = Array.FindIndex(allContacts, contact => contact == null);
-
-            if (firstNullIndex == -1)
+            int allContactsArrayLength = allContacts.Length;
+            
+            for (int i = 0; i < allContactsArrayLength; i++)
             {
-                firstNullIndex = allContacts.Length;
+                if (allContacts[i] == null)
+                {
+                    nullCounter++;
+                }
+                else
+                {
+                    userInterface.DisplayContact(allContacts[i]);
+                }
             }
 
-            for (int i = 0; i < firstNullIndex; i++)
+            if (nullCounter == allContactsArrayLength)
             {
-                userInterface.DisplayContact(allContacts[i]);
+                userInterface.DisplayEmptyContactList();
             }
         }
 
         private void SearchContact()
         {
-            int contactID = userInterface.GetContactID();
+            int contactID = userInterface.GetContactID("look up");
             Contact requestedContact = repository.RetrieveContactById(contactID);
             
             if (requestedContact == null)
@@ -107,8 +115,18 @@ namespace ContactList.Controller
 
         private void DeleteContact()
         {
-            //Remove this line when you start implementing action method
-            Console.WriteLine("This action is not implemented yet.");
+            int contactID = userInterface.GetContactID("delete");
+            repository.DeleteContact(contactID);
+            Contact requestedContact = repository.RetrieveContactById(contactID);
+
+            if (requestedContact == null)
+            {
+                userInterface.ShowActionSuccess("Delete Contact");
+            }
+            else
+            {
+                userInterface.ShowActionFail("Delete Contact");
+            }
         }
     }
 }
