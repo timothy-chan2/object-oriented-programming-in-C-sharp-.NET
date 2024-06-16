@@ -58,5 +58,11 @@ namespace GuessingGame.BLL
         {
             CreateRandomAnswer();
         }
+
+        // This method is for used when doing unit tests so the answer in known
+        public void Start(int answer)
+        {
+            _answer = answer;
+        }
     }
 }
