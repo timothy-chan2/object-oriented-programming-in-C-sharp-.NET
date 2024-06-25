@@ -8,6 +8,16 @@ namespace Factorizor.BLL
 {
     class PrimeChecker
     {
+        private bool IsPrimeNumber(int userSelectedNumber, int countOfFactors)
+        {
+            bool isPrimeNumber = false;
 
+            if (userSelectedNumber > 1 && countOfFactors == 2)
+            {
+                isPrimeNumber = true;
+            }
+
+            return isPrimeNumber;
+        }
     }
 }
