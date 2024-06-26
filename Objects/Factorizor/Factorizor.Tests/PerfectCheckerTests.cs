@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NUnit.Framework;
+using Factorizor.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +8,35 @@ using System.Threading.Tasks;
 
 namespace Factorizor.Tests
 {
-    class PerfectCheckerTests
+    [TestFixture]
+    public class PerfectCheckerTests
     {
+        [Test]
+        public void NotPerfectNumberTest()
+        {
+            FactorFinder factorFinderInstance = new FactorFinder();
+            PerfectChecker perfectCheckerInstance = new PerfectChecker();
+            int userSelectedNumber = 12;
 
+            List<int> factors = factorFinderInstance.ProcessInput(userSelectedNumber);
+            int numberOfFactors = factorFinderInstance.numberOfFactors;
+
+            bool actual = perfectCheckerInstance.IsPerfectNumber(userSelectedNumber, numberOfFactors, factors);
+            Assert.That(actual, Is.EqualTo(false));
+        }
+
+        [Test]
+        public void PerfectNumberTest()
+        {
+            FactorFinder factorFinderInstance = new FactorFinder();
+            PerfectChecker perfectCheckerInstance = new PerfectChecker();
+            int userSelectedNumber = 28;
+
+            List<int> factors = factorFinderInstance.ProcessInput(userSelectedNumber);
+            int numberOfFactors = factorFinderInstance.numberOfFactors;
+
+            bool actual = perfectCheckerInstance.IsPerfectNumber(userSelectedNumber, numberOfFactors, factors);
+            Assert.That(actual, Is.EqualTo(true));
+        }
     }
 }
