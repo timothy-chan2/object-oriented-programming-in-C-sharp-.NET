@@ -9,11 +9,11 @@ namespace Factorizor.BLL
     public class FactorFinder
     {
         public int numberOfFactors;
+        List<int> factors = new List<int>();
 
         private List<int> CreateListOfFactors(int input)
         {
             int rangeMax = (int)Math.Sqrt(input);
-            List<int> factors = new List<int>();
 
             for (int potentialFactor = 1; potentialFactor <= rangeMax; potentialFactor++)
             {
@@ -29,6 +29,31 @@ namespace Factorizor.BLL
 
             factors.Sort();
             numberOfFactors = factors.Count;
+
+            return factors;
+        }
+
+        private bool IsValidInput(int input)
+        {
+            bool isValidInput = false;
+            
+            if (input > 0)
+            {
+                isValidInput = true;
+            }
+
+            return isValidInput;
+        }
+
+        public List<int> ProcessInput(int input)
+        {
+            List<int> factors = null;
+
+
+            if (IsValidInput(input))
+            {
+                factors = CreateListOfFactors(input);
+            }
 
             return factors;
         }

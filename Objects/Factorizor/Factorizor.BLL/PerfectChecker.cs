@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Factorizor.BLL
 {
-    class PerfectChecker
+    public class PerfectChecker
     {
-        private bool IsPerfectNumber(int userSelectedNumber, int countOfFactors, List<int> factorsOfNumber)
+        public bool IsPerfectNumber(int userSelectedNumber, int countOfFactors, List<int> factorsOfNumber)
         {
             int sum = 0;
             bool isPerfectNumber = false;

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Factorizor.BLL
 {
-    class PrimeChecker
+    public class PrimeChecker
     {
-        private bool IsPrimeNumber(int userSelectedNumber, int countOfFactors)
+        public bool IsPrimeNumber(int userSelectedNumber, int countOfFactors)
         {
             bool isPrimeNumber = false;
 
