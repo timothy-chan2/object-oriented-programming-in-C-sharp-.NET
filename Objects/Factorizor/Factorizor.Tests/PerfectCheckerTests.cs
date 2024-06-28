@@ -18,7 +18,7 @@ namespace Factorizor.Tests
             PerfectChecker perfectCheckerInstance = new PerfectChecker();
             int userSelectedNumber = 12;
 
-            List<int> factors = factorFinderInstance.ProcessInput(userSelectedNumber);
+            List<int> factors = factorFinderInstance.CreateListOfFactors(userSelectedNumber);
             int numberOfFactors = factorFinderInstance.numberOfFactors;
 
             bool actual = perfectCheckerInstance.IsPerfectNumber(userSelectedNumber, numberOfFactors, factors);
@@ -32,7 +32,7 @@ namespace Factorizor.Tests
             PerfectChecker perfectCheckerInstance = new PerfectChecker();
             int userSelectedNumber = 28;
 
-            List<int> factors = factorFinderInstance.ProcessInput(userSelectedNumber);
+            List<int> factors = factorFinderInstance.CreateListOfFactors(userSelectedNumber);
             int numberOfFactors = factorFinderInstance.numberOfFactors;
 
             bool actual = perfectCheckerInstance.IsPerfectNumber(userSelectedNumber, numberOfFactors, factors);

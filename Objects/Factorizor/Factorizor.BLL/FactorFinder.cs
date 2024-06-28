@@ -11,7 +11,7 @@ namespace Factorizor.BLL
         public int numberOfFactors;
         List<int> factors = new List<int>();
 
-        private List<int> CreateListOfFactors(int input)
+        public List<int> CreateListOfFactors(int input)
         {
             int rangeMax = (int)Math.Sqrt(input);
 
@@ -29,31 +29,6 @@ namespace Factorizor.BLL
 
             factors.Sort();
             numberOfFactors = factors.Count;
-
-            return factors;
-        }
-
-        private bool IsValidInput(int input)
-        {
-            bool isValidInput = false;
-            
-            if (input > 0)
-            {
-                isValidInput = true;
-            }
-
-            return isValidInput;
-        }
-
-        public List<int> ProcessInput(int input)
-        {
-            List<int> factors = null;
-
-
-            if (IsValidInput(input))
-            {
-                factors = CreateListOfFactors(input);
-            }
 
             return factors;
         }

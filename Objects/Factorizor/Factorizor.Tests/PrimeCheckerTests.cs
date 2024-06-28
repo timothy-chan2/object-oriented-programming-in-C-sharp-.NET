@@ -18,7 +18,7 @@ namespace Factorizor.Tests
             PrimeChecker primeCheckerInstance = new PrimeChecker();
             int userSelectedNumber = 12;
 
-            factorFinderInstance.ProcessInput(userSelectedNumber);
+            factorFinderInstance.CreateListOfFactors(userSelectedNumber);
             int numberOfFactors = factorFinderInstance.numberOfFactors;
 
             bool actual = primeCheckerInstance.IsPrimeNumber(userSelectedNumber, numberOfFactors);
@@ -32,7 +32,7 @@ namespace Factorizor.Tests
             PrimeChecker primeCheckerInstance = new PrimeChecker();
             int userSelectedNumber = 13;
 
-            factorFinderInstance.ProcessInput(userSelectedNumber);
+            factorFinderInstance.CreateListOfFactors(userSelectedNumber);
             int numberOfFactors = factorFinderInstance.numberOfFactors;
 
             bool actual = primeCheckerInstance.IsPrimeNumber(userSelectedNumber, numberOfFactors);
