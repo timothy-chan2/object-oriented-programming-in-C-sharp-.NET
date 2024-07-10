@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
+using RPG.Inventory.Items;
 using RPG.Inventory.Items.Containers;
 using RPG.Inventory.Items.Potions;
+using RPG.Inventory.Items.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,41 @@ namespace RPG.Inventory.Tests
 
             bool actual = b.AddItem(p);
             Assert.That(actual, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void CannotAddItemToFullBackpack()
+        {
+            Backpack b = new Backpack();
+            Sword s = new Sword();
+
+            b.AddItem(s);
+            b.AddItem(s);
+            b.AddItem(s);
+            b.AddItem(s);
+
+            bool actual = b.AddItem(s);
+            Assert.That(actual, Is.EqualTo(false));
+        }
+
+        [Test]
+        public void CanRemoveItemFromBackpack()
+        {
+            Backpack b = new Backpack();
+            HealthPotion p = new HealthPotion();
+
+            b.AddItem(p);
+            Item actual = b.RemoveItem();
+            Assert.That(actual, Is.EqualTo(p));
+        }
+
+        [Test]
+        public void EmptyBackpackReturnsNull()
+        {
+            Backpack b = new Backpack();
+
+            Item item = b.RemoveItem();
+            Assert.That(item, Is.EqualTo(null));
         }
     }
 }

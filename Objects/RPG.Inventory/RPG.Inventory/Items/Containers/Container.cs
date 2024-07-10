@@ -34,5 +34,19 @@ namespace RPG.Inventory.Items.Containers
                 return true;
             }
         }
+
+        public Item RemoveItem()
+        {
+            if (_currentIndex == 0)
+            {
+                return null;
+            }
+
+            _currentIndex--;
+            Item itemToReturn = _items[_currentIndex];
+            _items[_currentIndex] = null;
+
+            return itemToReturn;
+        }
     }
 }
