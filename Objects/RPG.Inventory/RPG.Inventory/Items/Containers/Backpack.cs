@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Inventory.Items.Containers
 {
-    class Backpack : Container
+    public class Backpack : Container
     {
         public Backpack() : base(4)
         {
