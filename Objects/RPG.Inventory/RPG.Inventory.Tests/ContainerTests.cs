@@ -58,5 +58,19 @@ namespace RPG.Inventory.Tests
             Item item = b.RemoveItem();
             Assert.That(item, Is.EqualTo(null));
         }
+
+        [Test]
+        public void PotionSatchelOnlyAllowsPotions()
+        {
+            PotionSatchel satchel = new PotionSatchel();
+            Sword sword = new Sword();
+
+            bool actual = satchel.AddItem(sword);
+            Assert.That(actual, Is.EqualTo(false));
+
+            HealthPotion potion = new HealthPotion();
+            actual = satchel.AddItem(potion);
+            Assert.That(actual, Is.EqualTo(true));
+        }
     }
 }
