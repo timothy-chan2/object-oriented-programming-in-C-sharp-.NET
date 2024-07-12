@@ -20,7 +20,7 @@ namespace RPG.Inventory.Items.Containers
             _currentIndex = 0;
         }
 
-        public bool AddItem(Item itemToAdd)
+        public virtual bool AddItem(Item itemToAdd)
         {
             if (_capacity == _currentIndex)
             {
