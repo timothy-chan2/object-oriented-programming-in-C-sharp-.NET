@@ -6,21 +6,11 @@ using System.Threading.Tasks;
 
 namespace RPG.Inventory.Items.Containers
 {
-    public class PotionSatchel : Container
+    public class PotionSatchel : SpecificContainer
     {
-        public PotionSatchel() : base(4)
+        public PotionSatchel() : base(4, "Potion")
         {
 
-        }
-
-        public override bool AddItem(Item itemToAdd)
-        {
-            if (itemToAdd.Type == "Potion")
-            {
-                return base.AddItem(itemToAdd);
-            }
-
-            return false;
         }
     }
 }
