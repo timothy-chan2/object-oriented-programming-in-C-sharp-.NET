@@ -32,5 +32,17 @@ namespace RPG.Inventory.Items.Containers
 
             return itemAdded;
         }
+
+        public override Item RemoveItem()
+        {
+            Item removedItem = base.RemoveItem();
+
+            if (removedItem != null)
+            {
+                _currentWeight -= removedItem.Weight;
+            }
+
+            return removedItem;
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace RPG.Inventory.Items.Containers
             }
         }
 
-        public Item RemoveItem()
+        public virtual Item RemoveItem()
         {
             if (_currentIndex == 0)
             {
