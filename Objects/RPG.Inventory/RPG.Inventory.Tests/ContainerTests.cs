@@ -72,5 +72,20 @@ namespace RPG.Inventory.Tests
             actual = satchel.AddItem(potion);
             Assert.That(actual, Is.EqualTo(true));
         }
+
+        [Test]
+        public void WeightRestrictedBagRestrictsWeight()
+        {
+            WetPaperSack sack = new WetPaperSack();
+            HealthPotion potion = new HealthPotion();
+
+            Assert.That(sack.AddItem(potion), Is.EqualTo(true));
+
+            Sword sword = new Sword();
+            Assert.That(sack.AddItem(sword), Is.EqualTo(false));
+
+            sack.RemoveItem();
+            Assert.That(sack.AddItem(sword), Is.EqualTo(true));
+        }
     }
 }
