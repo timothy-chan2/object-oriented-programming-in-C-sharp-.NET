@@ -20,8 +20,8 @@ namespace RPG.Inventory.Tests
             Backpack b = new Backpack();
             HealthPotion p = new HealthPotion();
 
-            bool actual = b.AddItem(p);
-            Assert.That(actual, Is.EqualTo(true));
+            AddItemStatus actual = b.AddItem(p);
+            Assert.That(actual, Is.EqualTo(AddItemStatus.Success));
         }
 
         [Test]
@@ -35,8 +35,8 @@ namespace RPG.Inventory.Tests
             b.AddItem(s);
             b.AddItem(s);
 
-            bool actual = b.AddItem(s);
-            Assert.That(actual, Is.EqualTo(false));
+            AddItemStatus actual = b.AddItem(s);
+            Assert.That(actual, Is.EqualTo(AddItemStatus.BagIsFull));
         }
 
         [Test]
@@ -65,12 +65,12 @@ namespace RPG.Inventory.Tests
             PotionSatchel satchel = new PotionSatchel();
             Sword sword = new Sword();
 
-            bool actual = satchel.AddItem(sword);
-            Assert.That(actual, Is.EqualTo(false));
+            AddItemStatus actual = satchel.AddItem(sword);
+            Assert.That(actual, Is.EqualTo(AddItemStatus.ItemNotRightType));
 
             HealthPotion potion = new HealthPotion();
             actual = satchel.AddItem(potion);
-            Assert.That(actual, Is.EqualTo(true));
+            Assert.That(actual, Is.EqualTo(AddItemStatus.Success));
         }
 
         [Test]
@@ -79,13 +79,13 @@ namespace RPG.Inventory.Tests
             WetPaperSack sack = new WetPaperSack();
             HealthPotion potion = new HealthPotion();
 
-            Assert.That(sack.AddItem(potion), Is.EqualTo(true));
+            Assert.That(sack.AddItem(potion), Is.EqualTo(AddItemStatus.Success));
 
             Sword sword = new Sword();
-            Assert.That(sack.AddItem(sword), Is.EqualTo(false));
+            Assert.That(sack.AddItem(sword), Is.EqualTo(AddItemStatus.BagIsTooHeavy));
 
             sack.RemoveItem();
-            Assert.That(sack.AddItem(sword), Is.EqualTo(true));
+            Assert.That(sack.AddItem(sword), Is.EqualTo(AddItemStatus.Success));
         }
     }
 }

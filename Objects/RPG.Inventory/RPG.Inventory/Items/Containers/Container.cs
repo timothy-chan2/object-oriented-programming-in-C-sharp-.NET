@@ -20,18 +20,18 @@ namespace RPG.Inventory.Items.Containers
             _currentIndex = 0;
         }
 
-        public virtual bool AddItem(Item itemToAdd)
+        public virtual AddItemStatus AddItem(Item itemToAdd)
         {
             if (_capacity == _currentIndex)
             {
-                return false;
+                return AddItemStatus.BagIsFull;
             }
             else
             {
                 _items[_currentIndex] = itemToAdd;
                 _currentIndex ++;
 
-                return true;
+                return AddItemStatus.Success;
             }
         }
 

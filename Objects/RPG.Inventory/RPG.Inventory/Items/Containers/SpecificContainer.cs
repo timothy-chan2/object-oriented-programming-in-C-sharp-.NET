@@ -15,13 +15,13 @@ namespace RPG.Inventory.Items.Containers
             _requiredType = requiredType;
         }
 
-        public override bool AddItem(Item itemToAdd)
+        public override AddItemStatus AddItem(Item itemToAdd)
         {
             if (itemToAdd.Type == _requiredType)
             {
                 return base.AddItem(itemToAdd);
             }
-            return false;
+            return AddItemStatus.ItemNotRightType;
         }
     }
 }

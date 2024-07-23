@@ -16,21 +16,21 @@ namespace RPG.Inventory.Items.Containers
             _maxWeight = maxWeight;
         }
 
-        public override bool AddItem(Item itemToAdd)
+        public override AddItemStatus AddItem(Item itemToAdd)
         {
             if (_currentWeight + itemToAdd.Weight > _maxWeight)
             {
-                return false;
+                return AddItemStatus.BagIsTooHeavy;
             }
             
-            bool itemAdded = base.AddItem(itemToAdd);
+            AddItemStatus status = base.AddItem(itemToAdd);
 
-            if (itemAdded)
+            if (status == AddItemStatus.Success)
             {
                 _currentWeight += itemToAdd.Weight;
             }
 
-            return itemAdded;
+            return status;
         }
 
         public override Item RemoveItem()
