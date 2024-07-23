@@ -13,7 +13,7 @@ namespace RPG.Inventory.Items.Armor
             Name = "A small shield";
             Description = "Useful for protecting yourself";
             Weight = 3;
-            Type = "Armor";
+            Type = ItemType.Armor;
         }
     }
 }

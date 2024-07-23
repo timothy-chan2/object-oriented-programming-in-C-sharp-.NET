@@ -13,7 +13,7 @@ namespace RPG.Inventory.Items.Weapons
             Name = "A wooden sword";
             Description = "Useful for defending yourself";
             Weight = 3;
-            Type = "Weapon";
+            Type = ItemType.Weapon;
         }
     }
 }

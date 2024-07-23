@@ -8,9 +8,9 @@ namespace RPG.Inventory.Items.Containers
 {
     public class SpecificContainer : Container
     {
-        private string _requiredType;
+        private ItemType _requiredType;
 
-        public SpecificContainer(int capacity, string requiredType) : base(capacity)
+        public SpecificContainer(int capacity, ItemType requiredType) : base(capacity)
         {
             _requiredType = requiredType;
         }

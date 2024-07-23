@@ -13,7 +13,7 @@ namespace RPG.Inventory.Items.Potions
             Name = "A health potion";
             Description = "Useful for healing";
             Weight = 1;
-            Type = "Potion";
+            Type = ItemType.Potion;
         }
     }
 }
