@@ -3,11 +3,6 @@ using RPG.Inventory.Items;
 using RPG.Inventory.Items.Containers;
 using RPG.Inventory.Items.Potions;
 using RPG.Inventory.Items.Weapons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RPG.Inventory.Tests
 {
