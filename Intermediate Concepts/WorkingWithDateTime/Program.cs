@@ -15,6 +15,11 @@ namespace WorkingWithDateTime
 
             //August 6th, 2024 11:45:10 AM
             nullableDate = new DateTime(2024, 8, 6, 11, 45, 10);
+
+            Console.Write("Enter a date: ");
+            string input = Console.ReadLine();
+
+            nullableDate = DateTime.TryParse(input, out DateTime parseDate) ? parseDate : (DateTime?)null;
         }
     }
 }
