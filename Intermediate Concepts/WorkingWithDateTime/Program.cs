@@ -13,9 +13,6 @@ namespace WorkingWithDateTime
             // Mark the variable declaration as nullable if you might need to set it as null
             DateTime? nullableDate = null;
 
-            // August 6th, 2024 11:45:10 AM
-            nullableDate = new DateTime(2024, 8, 6, 11, 45, 10);
-
             Console.Write("Enter a date: ");
             string input = Console.ReadLine();
 
@@ -30,6 +27,18 @@ namespace WorkingWithDateTime
 
             // With time to the millisecond in UTC
             Console.WriteLine(DateTime.UtcNow);
+
+            // August 6th, 2024 11:45:10 AM
+            DateTime date = new DateTime(2024, 8, 6, 11, 45, 10);
+
+            Console.WriteLine(date.Year);    // 2024
+            Console.WriteLine(date.Month);   // 8
+            Console.WriteLine(date.Day);     // 6
+            Console.WriteLine(date.Hour);    // 11
+            Console.WriteLine(date.Minute);  // 45
+            Console.WriteLine(date.Second);  // 10
+            Console.WriteLine(date.DayOfWeek);  // DayOfWeek.Tuesday
+            Console.WriteLine(date.DayOfYear);  // Shows how many days into the calendar year
         }
     }
 }
