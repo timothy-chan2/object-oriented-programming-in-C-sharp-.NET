@@ -39,6 +39,22 @@ namespace WorkingWithDateTime
             Console.WriteLine(date.Second);  // 10
             Console.WriteLine(date.DayOfWeek);  // DayOfWeek.Tuesday
             Console.WriteLine(date.DayOfYear);  // Shows how many days into the calendar year
+
+            // Doing calculations with dates
+            // Using TimeSpan
+            // Only allows days, hours, minutes, seconds (30 days, 0 hours, 0 minutes, 0 seconds)
+            TimeSpan daysToExpiryOfFreeTrial = new TimeSpan(30, 0, 0, 0);
+            DateTime freeTrialEndDate = DateTime.Today + daysToExpiryOfFreeTrial;
+
+            // Using Date Parts
+            date = date.AddYears(1);  // 1 year later
+            date = date.AddMonths(2);  // 2 months later
+            date = date.AddDays(3.5);  // 3 day, 12 hours later
+            date = date.AddHours(-4);  // 4 hours earlier
+            date = date.AddMinutes(5);    // 5 minutes later
+            date = date.AddSeconds(6.5);  // 6.5 seconds later
+            date = date.AddMilliseconds(7);  // 7 milliseconds later
+            date = date.AddTicks(10000);  // 10,000 ticks later or 1 millisecond later
         }
     }
 }
